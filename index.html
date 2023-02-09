@@ -15,8 +15,7 @@
             <img class="header__logo" src="./images/Logo.svg" alt="Место">
         </header>
 
-        <main class="content">
-            
+        <main class="content">    
             <section class="profile">
               <div class="profile__profile">
                 <img class="profile__image" alt="Аватар" src="./images/profile__image.jpg">
@@ -75,15 +74,24 @@
                     </div>
                 </div>
             </section>
-
+        </main>
             <footer class="footer">
                 <p class="footer__text">&copy; 2022 Mesto Russia</p> 
             </footer>
-
-
-
-        </main>
     </div>
+
+    <section class="popup popup_opened">
+            <div class="popup__container">
+                <img class="popup__icon" alt="Закрыть" src="./images/Close-Icon.svg">
+                <h2 class="popup__text">Редактировать профиль</h2>
+                <input type="text" class="popup__name" value="Жак-Ив Кусто">
+                <input type="text" class="popup__about" value="Исследователь океана">
+                <button class="popup__button">
+                    <p class="popup__save">Сохранить</p>
+                </button>
+        </div>
+
+    </section>
     
 </body>
 </html>
