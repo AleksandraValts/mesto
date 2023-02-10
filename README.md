@@ -17,7 +17,7 @@
 * flex, grid, медиазапросы
 * Java Script
 
-Удачи!
+
 
 **Ссылка на GitHub**
 
