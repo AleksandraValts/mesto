@@ -21,4 +21,4 @@
 
 **Ссылка на GitHub**
 
-* [Посмотреть проект на GitHub](https://)
+* [Посмотреть проект на GitHub](https://aleksandravalts.github.io/mesto/)
