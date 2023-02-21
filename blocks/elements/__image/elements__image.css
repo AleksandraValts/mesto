@@ -3,4 +3,5 @@
     position: relative;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    cursor: zoom-in;
 }

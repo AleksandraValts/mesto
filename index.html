@@ -29,57 +29,23 @@
               <button type="button" class="button profile__button-add"></button>
             </section>
 
-            <section class="elements">
+            <template class="elements" id="elements-template">
                 <div class="elements__element">
-                    <img class="elements__image" alt="Фареры" src="./images/Faroe.jpg">
+                    <img class="elements__image" alt="Фото" src="#">
                     <div class="elements__info">
-                        <h2 class="elements__name">Фарерские острова</h2>
+                        <h2 class="elements__name"></h2>
                         <button type="button" class="elements__like "></button>
                     </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__image" alt="Италия" src="./images/Rome.jpg">
-                    <div class="elements__info">
-                        <h2 class="elements__name">Италия</h2>
-                        <button type="button" class="elements__like "></button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__image" alt="США" src="./images/USA.jpg">
-                    <div class="elements__info">
-                        <h2 class="elements__name">США</h2>
-                        <button type="button" class="elements__like "></button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__image" alt="Новая Зеландия" src="./images/New_Zeland.jpg">
-                    <div class="elements__info">
-                        <h2 class="elements__name">Новая Зеландия</h2>
-                        <button type="button" class="elements__like "></button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__image" alt="Россия" src="./images/Moscow.jpg">
-                    <div class="elements__info">
-                        <h2 class="elements__name">Россия</h2>
-                        <button type="button" class="elements__like"></button>
-                    </div>
-                </div>
-                <div class="elements__element">
-                    <img class="elements__image" alt="Исландия" src="./images/Iceland.jpg">
-                    <div class="elements__info">
-                        <h2 class="elements__name">Исландия</h2>
-                        <button type="button" class="elements__like "></button>
-                    </div>
-                </div>
-            </section>
+                    <button type="button" class="elements__delete "></button>
+                </div>              
+            </template>
         </main>
             <footer class="footer">
-                <p class="footer__text">&copy; 2022 Mesto Russia</p> 
+                <p class="footer__text">&copy; 2023 Mesto Russia</p> 
             </footer>
     </div>
 
-    <div class="popup">
+    <div class="popup popup_type_profile">
         <div class="popup__container">
             <button type="button" class="popup__icon"></button>
             <h2 class="popup__text">Редактировать профиль</h2>
@@ -93,6 +59,32 @@
                 <button class="popup__button" type="submit">Сохранить</button>
             </form>
         </div>
+    </div>
+
+    <div class="popup popup_type_places">
+        <div class="popup__container">
+            <button type="button" class="popup__icon popup__icon_places"></button>
+            <h2 class="popup__text popup__text_places">Новое место</h2>
+            <form class="popup__form popup__form_places" name="popup-places">
+                <input type="text" name="popup-place"
+                    class="popup__input popup__input_type_place"
+                    placeholder="Название">
+                <input type="text" name="popup-src"
+                    class="popup__input popup__input_type_src"
+                    placeholder="Ссылка на картинку">
+                <button class="popup__button popup__button_places" type="submit">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup_type_photo">
+        <div class="popup__photo-open">
+            <button type="button" class="popup__icon popup__icon_photo"></button>
+            <img class="popup__image" alt="Фото" src="./images/Faroe.jpg">
+            <h3 class="popup__photo-about">Фарерские острова</h3>
+
+        </div>
+
     </div>
     
     <script src="./scripts/popup.js"></script>
