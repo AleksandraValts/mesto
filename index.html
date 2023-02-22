@@ -8,42 +8,43 @@
     <title>Сервис Mesto</title>
 </head>
 
-<body>
-    <div class="page">
-        <header class="header">
-            <img class="header__logo" src="./images/Logo.svg" alt="Место">
-        </header>
+<body class="page">
+    <header class="header">
+        <img class="header__logo" src="./images/Logo.svg" alt="Место">
+    </header>
 
-        <main class="content">    
-            <section class="profile">
-              <div class="profile__container">
+    <main class="content">    
+        <section class="profile">
+            <div class="profile__container">
                 <img class="profile__image" alt="Аватар" src="./images/profile__image.jpg">
                 <div class="profile__info">
                   <div class="profile__change">
                     <h1 class="profile__title">Жак-Ив Кусто</h1>
                     <button type="button" class="button profile__button-edit"></button>
                   </div>
-                    <p class="profile__subtitle">Исследователь океана</p>
+                  <p class="profile__subtitle">Исследователь океана</p>
                 </div>
-              </div>
-              <button type="button" class="button profile__button-add"></button>
-            </section>
+            </div>
+            <button type="button" class="button profile__button-add"></button>
+        </section>
 
-            <template class="elements" id="elements-template">
+        <section class="elements">
+            <template id="elements-template">
                 <div class="elements__element">
-                    <img class="elements__image" alt="Фото" src="#">
+                    <img class="elements__image" alt="Фото">
                     <div class="elements__info">
                         <h2 class="elements__name"></h2>
                         <button type="button" class="elements__like "></button>
                     </div>
                     <button type="button" class="elements__delete "></button>
-                </div>              
-            </template>
-        </main>
-            <footer class="footer">
-                <p class="footer__text">&copy; 2023 Mesto Russia</p> 
-            </footer>
-    </div>
+                </div>
+            </template>             
+        </section>
+
+    </main>
+        <footer class="footer">
+            <p class="footer__text">&copy; 2023 Mesto Russia</p> 
+        </footer>
 
     <div class="popup popup_type_profile">
         <div class="popup__container">
@@ -84,10 +85,7 @@
             <h3 class="popup__photo-about">Фарерские острова</h3>
 
         </div>
-
-    </div>
-    
-    <script src="./scripts/popup.js"></script>
-    
+    </div>    
+    <script src="./scripts/popup.js"></script>    
 </body>
 </html>
