@@ -86,17 +86,18 @@ const initialCards = [
   ]; 
 
 const elements = document.querySelector('.elements');
-  
+
+// добавляем карточку из массива initialCards
 function createCard(card) {
-    // добавляем карточку из массива initialCards
-    const newCard = document.querySelector('#elements-template').content.cloneNode(true);
-    const cardHeadind = newCard.querySelector('.elements__name');
+    const newCard = document.querySelector('#elements-template').content;
+    const cardElement = newCard.querySelector(".elements__element").cloneNode(true);
+    const cardHeadind = cardElement.querySelector('.elements__name');
     cardHeadind.textContent = card.name;
-    const cardImage = newCard.querySelector('.elements__image');
+    const cardImage = cardElement.querySelector('.elements__image');
     cardImage.setAttribute('src', card.link);
-    const deleteButton = newCard.querySelector('.elements__delete');
+    const deleteButton = cardElement.querySelector('.elements__delete');
     deleteButton.addEventListener('click', handleDeleteButtonClick);
-    elements.append(newCard);
+    elements.append(cardElement);
 
     // увеличиваем добавленные карточки
     cardImage.addEventListener("click", function () {
@@ -106,10 +107,11 @@ function createCard(card) {
     });
 
     // ставим карточкам лайк
-    const likeElements = elements.querySelector('.elements__like');
+    const likeElements = cardElement.querySelector('.elements__like');
     likeElements.addEventListener('click', function (like) {
        like.target.classList.toggle('elements__like_active');
     });
+    return newCard;
 }
 initialCards.forEach(createCard);
 
@@ -124,14 +126,12 @@ const renderCard = () => {
     deleteButton.addEventListener('click', handleDeleteButtonClick);
     elements.prepend(newCard);
 
-    // увеличиваем добавленные карточки
     cardImage.addEventListener("click", function () {
         openPhotoWindow(popupPhoto);
         bigImage.src = cardImage.src;
         bigImageHeading.textContent = cardHeadind.textContent;
     });
 
-    // ставим карточкам лайк
     const likeElements = elements.querySelector('.elements__like');
     likeElements.addEventListener('click', function (like) {
        like.target.classList.toggle('elements__like_active');
