@@ -50,14 +50,14 @@ function handleFormSubmitPhoto (evt) {
 }
 
 function createCard(name, link) {
-  const cardElement = newCardTemplate.querySelector(".elements__element").cloneNode(true);
+  const cardElement = newCardTemplate.querySelector('.elements__element').cloneNode(true);
   const cardHeadind = cardElement.querySelector('.elements__name');
   const cardImage = cardElement.querySelector('.elements__image');
   const deleteButton = cardElement.querySelector('.elements__delete');
     
-  cardHeadind.textContent = name || placeInput.value || 'Всегда Исландия';
-  cardImage.alt = name || placeInput.value || 'Всегда Исландия';
-  cardImage.src = link || srcInput.value || 'https://sun9-72.userapi.com/impg/tQjmFZRbFt_h6srmVDUTHxdC-tGoqT7N4rNIdA/Kvau_Cpyudc.jpg?size=799x799&quality=95&sign=7bc7c94c7529195e9750f369220639b2&type=album';
+  cardHeadind.textContent = name || 'Всегда Исландия';
+  cardImage.alt = name || 'Всегда Исландия';
+  cardImage.src = link || 'https://sun9-72.userapi.com/impg/tQjmFZRbFt_h6srmVDUTHxdC-tGoqT7N4rNIdA/Kvau_Cpyudc.jpg?size=799x799&quality=95&sign=7bc7c94c7529195e9750f369220639b2&type=album';
   deleteButton.addEventListener('click', deleteButtonClick);
     
   // увеличиваем добавленные карточки
