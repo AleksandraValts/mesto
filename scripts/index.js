@@ -1,13 +1,13 @@
 const popupEditProfile = document.querySelector('.popup_type_profile');
-const editButton = document.querySelector('.profile__button-edit');
-const closeButton = document.querySelectorAll('.popup__button-close');
+const buttonOpenEditProfilePopup = document.querySelector('.profile__button-edit');
+const buttonsClosePopup = document.querySelectorAll('.popup__button-close');
 const popupForm = document.querySelector('.popup__form');
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_about');
 const profileName = document.querySelector('.profile__title');
 const profileAbout = document.querySelector('.profile__subtitle');
 const popupEditPlace = document.querySelector('.popup_type_places');
-const addButton = document.querySelector('.profile__button-add');
+const buttonOpenAddCardPopup = document.querySelector('.profile__button-add');
 const formPlacesElement = document.querySelector('.popup__form_places');
 const placeInput = document.querySelector('.popup__input_type_place');
 const srcInput = document.querySelector('.popup__input_type_src');
@@ -64,6 +64,7 @@ function createCard(name, link) {
   cardImage.addEventListener("click", function () {
     openPhotoWindow(popupPhoto);
     bigImage.src = cardImage.src;
+    bigImage.alt = cardHeadind.textContent;
     bigImageHeading.textContent = cardHeadind.textContent;
   });
 
@@ -92,12 +93,12 @@ function deleteButtonClick(event) {
 }
 
 // установка слушателей
-editButton.addEventListener('click', openProfileWindow);
-addButton.addEventListener('click', function() {
+buttonOpenEditProfilePopup.addEventListener('click', openProfileWindow);
+buttonOpenAddCardPopup.addEventListener('click', function() {
   openPopup(popupEditPlace);
 });
 
-closeButton.forEach(function(event) {
+buttonsClosePopup.forEach(function(event) {
   const button = event.closest('.popup');
   event.addEventListener('click', function() {
     closePopup(button);
