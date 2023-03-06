@@ -1,26 +1,26 @@
 const initialCards = [
     {
-      name: 'Фарерские острова',
-      link: 'https://sun9-30.userapi.com/impg/zpSQCGYlC16plUoifF4tfb9nHuLsUwSPjbMIyA/U8qZ8ZK2JJY.jpg?size=799x799&quality=95&sign=6d9142ed1ac8a7b8461c95e6d33b3f1e&type=album'
+      name: 'Пожары',
+      link: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/36004940-5a77-4164-9d96-01b7d1edb283/orig'
     },
     {
-      name: 'Италия',
-      link: 'https://sun9-21.userapi.com/impg/y3ndk7_q2WGHtckI0uffHP5C04-BX9D3g5Gjzw/bN6BsUN5S6Q.jpg?size=799x799&quality=95&sign=07c3edce4aa5bae99737dda931d906c5&type=album'
+      name: 'Пленницы',
+      link: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1704946/0b4affff-b79e-4a91-9a34-1c12ae585b28/orig'
     },
     {
-      name: 'США',
-      link: 'https://sun9-31.userapi.com/impg/lbxRuazlD6XbH_d_S9Rk9jW82u50667FaOCfvQ/2Q78DVzqenE.jpg?size=799x799&quality=95&sign=c26d4b84fd85a7e1479fa28958797f83&type=album'
+      name: 'Убийца',
+      link: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1900788/a978e5ec-76a1-45cf-a72f-f2c6c461d5e9/orig'
     },
     {
-      name: 'Новая Зеландия',
-      link: 'https://sun9-36.userapi.com/impg/OrMgrTZKqrwAhPQEuzjxHLuvOgbKV3Rr9sTduQ/OQB-lSp79YM.jpg?size=799x799&quality=95&sign=cf7b683b19760243449440b8ef67c0f4&type=album'
+      name: 'Прибытие',
+      link: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/22905d98-de68-4886-a6d2-4d0f54cae9f4/orig'
     },
     {
-      name: 'Россия',
-      link: 'https://sun9-37.userapi.com/impg/Lu9mYrUjpXLjkXwDTyefZ5dFjHaiCtUVSux1nQ/qoWOakiJe4s.jpg?size=799x799&quality=95&sign=fc4667fccc9efce5db05a78c70f761ce&type=album'
+      name: 'Бегущий по лезвию 2049',
+      link: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1773646/a2e267dd-8504-44bd-b641-d5f2571b4d99/orig'
     },
     {
-      name: 'Исландия',
-      link: 'https://sun9-72.userapi.com/impg/tQjmFZRbFt_h6srmVDUTHxdC-tGoqT7N4rNIdA/Kvau_Cpyudc.jpg?size=799x799&quality=95&sign=7bc7c94c7529195e9750f369220639b2&type=album'
+      name: 'Дюна',
+      link: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4774061/917ec2c3-b560-444e-afc9-666c2330a9ae/orig'
     }
   ]; 

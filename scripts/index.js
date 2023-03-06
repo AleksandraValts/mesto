@@ -16,13 +16,24 @@ const bigImage = document.querySelector('.popup__image');
 const bigImageHeading = document.querySelector('.popup__photo-about');
 const elementsContainer = document.querySelector('.elements');
 const newCardTemplate = document.querySelector('#elements-template').content;
+const popupsAll = document.querySelectorAll('.popup');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc);
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.addEventListener('keydown', closePopupByEsc);
+}
+
+// добавлено закрытие при нажатии на Esc
+function closePopupByEsc(esc) {
+  if (esc.key === 'Escape') {
+    const popupOpened = document.querySelector('.popup_opened');
+    closePopup(popupOpened);
+  }
 }
 
 function openProfileWindow() {
@@ -55,9 +66,9 @@ function createCard(name, link) {
   const cardImage = cardElement.querySelector('.elements__image');
   const deleteButton = cardElement.querySelector('.elements__delete');
     
-  cardHeadind.textContent = name || 'Всегда Исландия';
-  cardImage.alt = name || 'Всегда Исландия';
-  cardImage.src = link || 'https://sun9-72.userapi.com/impg/tQjmFZRbFt_h6srmVDUTHxdC-tGoqT7N4rNIdA/Kvau_Cpyudc.jpg?size=799x799&quality=95&sign=7bc7c94c7529195e9750f369220639b2&type=album';
+  cardHeadind.textContent = name || 'Coming soon...';
+  cardImage.alt = name || 'Скоро';
+  cardImage.src = link || 'https://avatars.mds.yandex.net/get-kinopoisk-image/4716873/71fdc731-bf53-49f9-87af-449bbff73115/orig';
   deleteButton.addEventListener('click', deleteButtonClick);
     
   // увеличиваем добавленные карточки
@@ -92,7 +103,6 @@ function deleteButtonClick(event) {
   card.remove();
 }
 
-// установка слушателей
 buttonOpenEditProfilePopup.addEventListener('click', openProfileWindow);
 buttonOpenAddCardPopup.addEventListener('click', function() {
   openPopup(popupEditPlace);
@@ -102,8 +112,17 @@ buttonsClosePopup.forEach(function(event) {
   const button = event.closest('.popup');
   event.addEventListener('click', function() {
     closePopup(button);
-  });
-});
+  })
+})
+
+// добавлено закрытие при нажатии на оверлей
+popupsAll.forEach(function(popups) {
+  popups.addEventListener('mousedown', function(event) {
+    if (event.target.classList.contains('popup_opened')) {
+      closePopup(popups);
+    }
+  })
+})
 
 popupForm.addEventListener('submit', handleFormSubmitProfile);
 formPlacesElement.addEventListener('submit', handleFormSubmitPhoto);
