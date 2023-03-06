@@ -51,16 +51,16 @@
             <button type="button" class="popup__button-close"></button>
             <h2 class="popup__text">Редактировать профиль</h2>
             <form class="popup__form" name="popup-form" novalidate>
-                <input type="text" name="popup-name"
+                <input type="text" name="popup-name" id="input-name"
                     class="popup__input popup__input_type_name"
                     placeholder="Имя пользователя"
                     minlength="2" maxlength="40" required>
-                <span class="popup__input-name-error">Необходимо заполнить данное поле</span>
-                <input type="text" name="popup-text"
+                <span class="input-name-error">Вы пропустили это поле</span>
+                <input type="text" name="popup-text" id="input-about"
                     class="popup__input popup__input_type_about"
                     placeholder="Информация о пользователе"
                     minlength="2" maxlength="200" required>
-                <span class="popup__input-about-error">Необходимо заполнить данное поле</span>
+                <span class="input-about-error">Вы пропустили это поле</span>
                 <button class="popup__button" type="submit">Сохранить</button>
             </form>
         </div>
