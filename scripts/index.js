@@ -58,7 +58,13 @@ function handleFormSubmitPhoto (evt) {
   addCard(placeInput.value, srcInput.value);
   closePopup(popupEditPlace);
   evt.target.reset();
-}
+
+  // проверка значений полей и установка кнопки
+  const disabledButton = popupEditPlace.querySelector('.popup__button');
+  if (placeInput.value === '' || srcInput.value === '') {
+    disabledButton.classList.add('popup__button_disabled');
+  };
+};
 
 function createCard(name, link) {
   const cardElement = newCardTemplate.querySelector('.elements__element').cloneNode(true);
@@ -116,10 +122,10 @@ buttonsClosePopup.forEach(function(event) {
 })
 
 // добавлено закрытие при нажатии на оверлей
-popupsAll.forEach(function(popups) {
-  popups.addEventListener('mousedown', function(event) {
+popupsAll.forEach(function(close) {
+  close.addEventListener('mousedown', function(event) {
     if (event.target.classList.contains('popup_opened')) {
-      closePopup(popups);
+      closePopup(close);
     }
   })
 })
