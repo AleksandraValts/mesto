@@ -17,27 +17,28 @@ const checkInputValidity = (formElement, inputElement) => {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
     hideInputError(formElement, inputElement);
-  }
+  };
 };
 
 const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
   return !inputElement.validity.valid;
-}); 
-}
+});
+};
 
 const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add('popup__button_inactive');
+    buttonElement.classList.add('popup__button_disabled');
   } else {
-    buttonElement.classList.remove('popup__button_inactive');
-  }
+    buttonElement.classList.remove('popup__button_disabled');
+  };
 }; 
 
 const setEventListeners = (formElement) => {
   const inputList = Array.from(formElement.querySelectorAll(`.popup__input`));
   const buttonElement = formElement.querySelector('.popup__button');
   toggleButtonState(inputList, buttonElement);
+    
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement);
@@ -52,13 +53,21 @@ const enableValidation = () => {
     formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
     });
+
     const fieldsetList = Array.from(formElement.querySelectorAll('.popup__container'));
 
-fieldsetList.forEach((fieldSet) => {
-  setEventListeners(fieldSet);
-}); 
+    fieldsetList.forEach((fieldSet) => {
+      setEventListeners(fieldSet);
+    }); 
   });
 };
 
-enableValidation();
+enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input-error',
+  errorClass: 'popup__input-error_active'
+});
 
