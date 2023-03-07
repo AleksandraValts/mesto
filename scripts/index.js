@@ -17,6 +17,7 @@ const bigImageHeading = document.querySelector('.popup__photo-about');
 const elementsContainer = document.querySelector('.elements');
 const newCardTemplate = document.querySelector('#elements-template').content;
 const popupsAll = document.querySelectorAll('.popup');
+const disabledButton = popupEditPlace.querySelector('.popup__button');
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -25,7 +26,7 @@ function openPopup(popup) {
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
-  document.addEventListener('keydown', closePopupByEsc);
+  document.removeEventListener('keydown', closePopupByEsc);
 }
 
 // добавлено закрытие при нажатии на Esc
@@ -42,10 +43,6 @@ function openProfileWindow() {
   jobInput.value = profileAbout.textContent;
 }
 
-function openPhotoWindow() {
-  popupPhoto.classList.add('popup_opened');
-}
-
 function handleFormSubmitProfile (evt) {
   evt.preventDefault(); 
   profileName.textContent = nameInput.value;
@@ -60,9 +57,9 @@ function handleFormSubmitPhoto (evt) {
   evt.target.reset();
 
   // проверка значений полей и установка кнопки
-  const disabledButton = popupEditPlace.querySelector('.popup__button');
   if (placeInput.value === '' || srcInput.value === '') {
     disabledButton.classList.add('popup__button_disabled');
+    disabledButton.setAttribute('disabled', true);
   };
 };
 
@@ -79,7 +76,7 @@ function createCard(name, link) {
     
   // увеличиваем добавленные карточки
   cardImage.addEventListener("click", function () {
-    openPhotoWindow(popupPhoto);
+    openPopup(popupPhoto);
     bigImage.src = cardImage.src;
     bigImage.alt = cardHeadind.textContent;
     bigImageHeading.textContent = cardHeadind.textContent;
