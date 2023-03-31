@@ -52,36 +52,3 @@ class Card {
   }
 
 export {Card as createCard}
-
-
-
-
-
-
-function kreateCard(name, link) {
-    const cardElement = newCardTemplate.querySelector('.elements__element').cloneNode(true);
-    const cardHeadind = cardElement.querySelector('.elements__name');
-    const cardImage = cardElement.querySelector('.elements__image');
-    const deleteButton = cardElement.querySelector('.elements__delete');
-      
-    cardHeadind.textContent = name;
-    cardImage.alt = name;
-    cardImage.src = link;
-    deleteButton.addEventListener('click', deleteButtonClick);
-      
-    // увеличиваем добавленные карточки
-    cardImage.addEventListener("click", function () {
-      openPopup(popupPhoto);
-      bigImage.src = cardImage.src;
-      bigImage.alt = cardHeadind.textContent;
-      bigImageHeading.textContent = cardHeadind.textContent;
-    });
-  
-    // ставим карточкам лайк
-    const likeElements = cardElement.querySelector('.elements__like');
-    likeElements.addEventListener('click', function (like) {
-      like.target.classList.toggle('elements__like_active');
-    });
-    
-    return cardElement;
-  }

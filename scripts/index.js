@@ -1,7 +1,6 @@
 import { initialCards } from "./constants.js";
 import { createCard } from "./Card.js";
 
-
 const popupEditProfile = document.querySelector('.popup_type_profile');
 const buttonOpenEditProfilePopup = document.querySelector('.profile__button-edit');
 const buttonsClosePopup = document.querySelectorAll('.popup__button-close');
@@ -19,7 +18,6 @@ const popupPhoto = document.querySelector('.popup_type_photo');
 const bigImage = document.querySelector('.popup__image');
 const bigImageHeading = document.querySelector('.popup__photo-about');
 const elementsContainer = document.querySelector('.elements');
-const newCardTemplate = document.querySelector('#elements-template').content;
 const popupsAll = document.querySelectorAll('.popup');
 const disabledButton = popupEditPlace.querySelector('.popup__button');
 
@@ -54,7 +52,6 @@ function handleFormSubmitProfile (evt) {
   closePopup(popupEditProfile);
 }
 
-// ДОБАВИТЬ ИЗМЕНЕНИЯ!
 function handleFormSubmitPhoto (evt) {
   evt.preventDefault(); 
   const photoAdded = new Object();
