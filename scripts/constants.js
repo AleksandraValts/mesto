@@ -1,4 +1,4 @@
-const initialCards = [
+export const initialCards = [
     {
       name: 'Пожары',
       link: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/36004940-5a77-4164-9d96-01b7d1edb283/orig'

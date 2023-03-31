@@ -1,3 +1,7 @@
+import { initialCards } from "./constants.js";
+import { createCard } from "./Card.js";
+
+
 const popupEditProfile = document.querySelector('.popup_type_profile');
 const buttonOpenEditProfilePopup = document.querySelector('.profile__button-edit');
 const buttonsClosePopup = document.querySelectorAll('.popup__button-close');
@@ -50,9 +54,13 @@ function handleFormSubmitProfile (evt) {
   closePopup(popupEditProfile);
 }
 
+// ДОБАВИТЬ ИЗМЕНЕНИЯ!
 function handleFormSubmitPhoto (evt) {
   evt.preventDefault(); 
-  addCard(placeInput.value, srcInput.value);
+  const photoAdded = new Object();
+  photoAdded.name = placeInput.value;
+  photoAdded.link = srcInput.value;
+  addCard(photoAdded, '#elements-template');
   closePopup(popupEditPlace);
   evt.target.reset();
 
@@ -63,47 +71,13 @@ function handleFormSubmitPhoto (evt) {
   };
 };
 
-function createCard(name, link) {
-  const cardElement = newCardTemplate.querySelector('.elements__element').cloneNode(true);
-  const cardHeadind = cardElement.querySelector('.elements__name');
-  const cardImage = cardElement.querySelector('.elements__image');
-  const deleteButton = cardElement.querySelector('.elements__delete');
-    
-  cardHeadind.textContent = name || 'Coming soon...';
-  cardImage.alt = name || 'Скоро';
-  cardImage.src = link || 'https://avatars.mds.yandex.net/get-kinopoisk-image/4716873/71fdc731-bf53-49f9-87af-449bbff73115/orig';
-  deleteButton.addEventListener('click', deleteButtonClick);
-    
-  // увеличиваем добавленные карточки
-  cardImage.addEventListener("click", function () {
-    openPopup(popupPhoto);
-    bigImage.src = cardImage.src;
-    bigImage.alt = cardHeadind.textContent;
-    bigImageHeading.textContent = cardHeadind.textContent;
-  });
-
-  // ставим карточкам лайк
-  const likeElements = cardElement.querySelector('.elements__like');
-  likeElements.addEventListener('click', function (like) {
-    like.target.classList.toggle('elements__like_active');
-  });
-  
-  return cardElement;
-}
-
 for (let i = 0; i < initialCards.length; i++) {
-  addCard(initialCards[i].name, initialCards[i].link);
+  addCard(initialCards[i], '#elements-template');
 }
 
-function addCard(name, link) {
-  const cardElement = createCard(name, link);
-  elementsContainer.prepend(cardElement);
-}
-
-function deleteButtonClick(event) {
-  const button = event.target;
-  const card = button.closest('.elements__element');
-  card.remove();
+function addCard(initialCards, templateSelector) {
+  const cardElement = new createCard(initialCards, templateSelector);
+  elementsContainer.prepend(cardElement.generateCard());
 }
 
 buttonOpenEditProfilePopup.addEventListener('click', openProfileWindow);
@@ -129,3 +103,5 @@ popupsAll.forEach(function(close) {
 
 popupForm.addEventListener('submit', handleFormSubmitProfile);
 formPlacesElement.addEventListener('submit', handleFormSubmitPhoto);
+
+export { openPopup, popupPhoto, bigImage, bigImageHeading }
