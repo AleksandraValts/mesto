@@ -1,6 +1,6 @@
 import { initialCards } from "./constants.js";
 import { createCard } from "./Card.js";
-import { configValidation, FormValidator } from "./FormValidator.js";
+import { config, FormValidator } from "./FormValidator.js";
 
 const popupEditProfile = document.querySelector('.popup_type_profile');
 const buttonOpenEditProfilePopup = document.querySelector('.profile__button-edit');
@@ -21,8 +21,8 @@ const bigImageHeading = document.querySelector('.popup__photo-about');
 const elementsContainer = document.querySelector('.elements');
 const popupsAll = document.querySelectorAll('.popup');
 const disabledButton = popupEditPlace.querySelector('.popup__button');
-const placesCardValidator = new FormValidator(configValidation, formPlacesElement);
-const profileCardValidator = new FormValidator(configValidation, popupForm);
+const placesCardValidator = new FormValidator(config, formPlacesElement);
+const profileCardValidator = new FormValidator(config, popupForm);
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');

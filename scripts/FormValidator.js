@@ -1,4 +1,4 @@
-const configValidation = {
+const config = {
     formSelector: '.popup__form',
     inputSelector: '.popup__input',
     submitButtonSelector: '.popup__button',
@@ -8,24 +8,24 @@ const configValidation = {
   };
 
   class FormValidator {
-    constructor(configValidation, formElement) {
-        this.configValidation = configValidation;
+    constructor(config, formElement) {
+        this.config = config;
         this._formElement = formElement;
-        this._inputList = Array.from(this._formElement.querySelectorAll(this.configValidation.inputSelector));
-        this._buttonElement = this._formElement.querySelector(this.configValidation.submitButtonSelector);
+        this._inputList = Array.from(this._formElement.querySelectorAll(this.config.inputSelector));
+        this._buttonElement = this._formElement.querySelector(this.config.submitButtonSelector);
     }
 
     _showInputError(inputElement, errorMessage) {
         const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.add(this.configValidation.inputErrorClass);
+        inputElement.classList.add(this.config.inputErrorClass);
         errorElement.textContent = errorMessage;
-        errorElement.classList.add(this.configValidation.errorClass);
+        errorElement.classList.add(this.config.errorClass);
     };
       
     _hideInputError(inputElement) {
         const errorElement = this._formElement.querySelector(`.${inputElement.id}-error`);
-        inputElement.classList.remove(this.configValidation.inputErrorClass);
-        errorElement.classList.remove(this.configValidation.errorClass);
+        inputElement.classList.remove(this.config.inputErrorClass);
+        errorElement.classList.remove(this.config.errorClass);
         errorElement.textContent = '';
     };
 
@@ -45,10 +45,10 @@ const configValidation = {
 
     _toggleButtonState() {
         if (this._hasInvalidInput()) {
-          this._buttonElement.classList.add(this.configValidation.inactiveButtonClass);
+          this._buttonElement.classList.add(this.config.inactiveButtonClass);
           this._buttonElement.setAttribute('disabled', true);
         } else {
-          this._buttonElement.classList.remove(this.configValidation.inactiveButtonClass);
+          this._buttonElement.classList.remove(this.config.inactiveButtonClass);
           this._buttonElement.removeAttribute('disabled', true);
         };
     };
@@ -71,7 +71,7 @@ const configValidation = {
     };
 
     enableValidation() {
-        const formList = Array.from(document.querySelectorAll(this.configValidation.inputSelector));
+        const formList = Array.from(document.querySelectorAll(this.config.inputSelector));
         formList.forEach((formElement) => {
           formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
@@ -81,4 +81,4 @@ const configValidation = {
       };
     }
 
-    export {configValidation, FormValidator}
+    export {config, FormValidator}

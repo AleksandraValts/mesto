@@ -16,7 +16,7 @@ class Card {
         return cardElement;
     }
   
-    _clickLikeActive() {
+    _clickLike() {
       this._cardLikeButton.classList.toggle('elements__like_active');
     }
   
@@ -27,7 +27,7 @@ class Card {
     _openImage() {
         openPopup(popupPhoto);
         bigImage.src = this._link;
-        bigImage.alt = this._nsme;
+        bigImage.alt = this._name;
         bigImageHeading.textContent = this._name;
     }
   
@@ -45,7 +45,7 @@ class Card {
     }
   
     _setEventListeners = () => {
-      this._cardLikeButton.addEventListener('click', () => this._clickLikeActive());
+      this._cardLikeButton.addEventListener('click', () => this._clickLike());
       this._cardDeleteButton.addEventListener('click', () => this._deleteCard());
       this._cardImage.addEventListener('click', () => this._openImage());
     }
