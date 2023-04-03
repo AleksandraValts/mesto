@@ -1,5 +1,3 @@
-import { config } from './constants.js';
-
 class FormValidator {
     constructor(config, formElement) {
         this.config = config;

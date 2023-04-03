@@ -22,7 +22,8 @@ const elementsContainer = document.querySelector('.elements');
 const popupsAll = document.querySelectorAll('.popup');
 const placesCardValidator = new FormValidator(config, formPlacesElement);
 const profileCardValidator = new FormValidator(config, popupForm);
-const profileWindowValidationReset = new FormValidator(config, popupEditProfile)
+const profileWindowValidationReset = new FormValidator(config, popupEditProfile);
+const placeWindowValidationReset = new FormValidator(config, popupEditPlace);
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -43,10 +44,10 @@ function closePopupByEsc(esc) {
 }
 
 function openProfileWindow() {
-  profileWindowValidationReset.resetValidation();
   openPopup(popupEditProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
+  profileWindowValidationReset.resetValidation();
 }
 
 function handleFormSubmitProfile (evt) {
@@ -84,6 +85,7 @@ function addCard(name, link) {
 buttonOpenEditProfilePopup.addEventListener('click', openProfileWindow);
 buttonOpenAddCardPopup.addEventListener('click', function() {
   openPopup(popupEditPlace);
+  placeWindowValidationReset.resetValidation();
 });
 
 buttonsClosePopup.forEach(function(event) {
