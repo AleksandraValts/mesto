@@ -1,4 +1,4 @@
-export const initialCards = [
+const initialCards = [
     {
       name: 'Пожары',
       link: 'https://avatars.mds.yandex.net/get-kinopoisk-image/1600647/36004940-5a77-4164-9d96-01b7d1edb283/orig'
@@ -24,3 +24,14 @@ export const initialCards = [
       link: 'https://avatars.mds.yandex.net/get-kinopoisk-image/4774061/917ec2c3-b560-444e-afc9-666c2330a9ae/orig'
     }
   ]; 
+
+const config = {
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__button',
+    inactiveButtonClass: 'popup__button_disabled',
+    inputErrorClass: 'popup__input-error',
+    errorClass: 'popup__input-error_active'
+  };
+
+export {config, initialCards}

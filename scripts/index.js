@@ -1,6 +1,6 @@
-import { initialCards } from "./constants.js";
-import { createCard } from "./Card.js";
-import { config, FormValidator } from "./FormValidator.js";
+import { initialCards, config } from "./constants.js";
+import { Card } from "./Card.js";
+import { FormValidator } from "./FormValidator.js";
 
 const popupEditProfile = document.querySelector('.popup_type_profile');
 const buttonOpenEditProfilePopup = document.querySelector('.profile__button-edit');
@@ -20,9 +20,9 @@ const bigImage = document.querySelector('.popup__image');
 const bigImageHeading = document.querySelector('.popup__photo-about');
 const elementsContainer = document.querySelector('.elements');
 const popupsAll = document.querySelectorAll('.popup');
-const disabledButton = popupEditPlace.querySelector('.popup__button');
 const placesCardValidator = new FormValidator(config, formPlacesElement);
 const profileCardValidator = new FormValidator(config, popupForm);
+const profileWindowValidationReset = new FormValidator(config, popupEditProfile)
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
@@ -43,6 +43,7 @@ function closePopupByEsc(esc) {
 }
 
 function openProfileWindow() {
+  profileWindowValidationReset.resetValidation();
   openPopup(popupEditProfile);
   nameInput.value = profileName.textContent;
   jobInput.value = profileAbout.textContent;
@@ -63,20 +64,15 @@ function handleFormSubmitPhoto (evt) {
   addCard(photoAdded, '#elements-template');
   closePopup(popupEditPlace);
   evt.target.reset();
-
-  // проверка значений полей и установка кнопки
-  if (placeInput.value === '' || srcInput.value === '') {
-    disabledButton.classList.add('popup__button_disabled');
-    disabledButton.setAttribute('disabled', true);
-  };
 };
 
 for (let i = 0; i < initialCards.length; i++) {
   addCard(initialCards[i], '#elements-template');
 }
 
+// функция createCard перенесена из index.js в Card.js
 function addCard(initialCards, templateSelector) {
-  const cardElement = new createCard(initialCards, templateSelector);
+  const cardElement = new Card(initialCards, templateSelector);
   elementsContainer.prepend(cardElement.generateCard());
 }
 

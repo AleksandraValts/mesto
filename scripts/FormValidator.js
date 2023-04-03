@@ -1,13 +1,6 @@
-const config = {
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__button',
-    inactiveButtonClass: 'popup__button_disabled',
-    inputErrorClass: 'popup__input-error',
-    errorClass: 'popup__input-error_active'
-  };
+import { config } from './constants.js';
 
-  class FormValidator {
+class FormValidator {
     constructor(config, formElement) {
         this.config = config;
         this._formElement = formElement;
@@ -54,14 +47,7 @@ const config = {
     };
 
     _setEventListeners() {
-        this._toggleButtonState();
-       
-        // добавлено после ревью
-        this._formElement.addEventListener('reset', () => {
-          setTimeout(() => {  
-            this._toggleButtonState(), 0});
-        });
-      
+        this._toggleButtonState(); 
         this._inputList.forEach((inputElement) => {
           inputElement.addEventListener('input', () => {
             this._checkInputValidity(inputElement);
@@ -71,14 +57,20 @@ const config = {
     };
 
     enableValidation() {
-        const formList = Array.from(document.querySelectorAll(this.config.inputSelector));
-        formList.forEach((formElement) => {
-          formElement.addEventListener('submit', (evt) => {
-            evt.preventDefault();
-          });
-          this._setEventListeners();
-          }); 
-      };
-    }
+        this._setEventListeners();
+    };
 
-    export {config, FormValidator}
+    disabledButton() {
+        this._buttonElement.setAttribute('disabled', 'disabled');
+        this._buttonElement.classList.add(this.config.inactiveButtonClass);
+    };
+
+    resetValidation() {
+        this._toggleButtonState();
+        this._inputList.forEach((inputElement) => {
+          this._hideInputError(inputElement);
+        });
+    };
+}
+
+export {FormValidator}

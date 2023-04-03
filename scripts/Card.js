@@ -22,6 +22,7 @@ class Card {
   
     _deleteCard() {
       this._element.remove();
+      this._element = null;
     }
   
     _openImage() {
@@ -51,4 +52,4 @@ class Card {
     }
   }
 
-export {Card as createCard}
+export {Card}
