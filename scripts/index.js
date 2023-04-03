@@ -70,10 +70,15 @@ for (let i = 0; i < initialCards.length; i++) {
   addCard(initialCards[i], '#elements-template');
 }
 
-// функция createCard перенесена из index.js в Card.js
-function addCard(initialCards, templateSelector) {
+function createCard(initialCards, templateSelector) {
   const cardElement = new Card(initialCards, templateSelector);
-  elementsContainer.prepend(cardElement.generateCard());
+  const cardTemplate = cardElement.generateCard();
+  return cardTemplate;
+}
+
+function addCard(name, link) {
+  const cardElement = createCard(name, link);
+  elementsContainer.prepend(cardElement);
 }
 
 buttonOpenEditProfilePopup.addEventListener('click', openProfileWindow);
