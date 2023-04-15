@@ -22,14 +22,14 @@ class Popup {
     }
 
     _handleBackgroundClose(event) {
-        if (event.target.classList.contains('popup')) {
+        if (event.target.classList.contains('popup_opened')) {
             this.close();
         }
     }
 
-    _setEventListeners() {
+    setEventListeners() {
         this._buttonsClose.addEventListener('mousedown', this.close.bind(this));
-        this._popup.addEventListener('mousedowwn', this._handleBackgroundClose.bind(this));
+        this._popup.addEventListener('click', this._handleBackgroundClose.bind(this));
     }
 }
 

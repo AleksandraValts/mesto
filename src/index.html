@@ -4,19 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./pages/index.css">
     <title>Сервис Mesto</title>
 </head>
 
 <body class="page">
     <header class="header">
-        <img class="header__logo" src="./images/Logo.svg" alt="Место">
+        <img class="header__logo" src="<%=require('./images/Logo.svg')%>" alt="Место">
     </header>
 
     <main class="content">    
         <section class="profile">
             <div class="profile__container">
-                <img class="profile__image" alt="Аватар" src="./images/profile__image.jpg">
+                <img class="profile__image" alt="Аватар" src="<%=require('./images/profile__image.jpg')%>">
                 <div class="profile__info">
                   <div class="profile__change">
                     <h1 class="profile__title">Дени Вильнев</h1>
@@ -89,6 +88,5 @@
             <h3 class="popup__photo-about"></h3>
         </div>
     </div>  
-    <script type="module" src="./pages/index.js"></script>
 </body>
 </html>

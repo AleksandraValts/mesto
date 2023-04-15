@@ -1,8 +1,8 @@
 class Section {
-    constructor({ items, renderer }, selector) {
+    constructor({ items, renderer }, popupSelector) {
         this._renderedItems = items;
         this._renderer = renderer;
-        this._container = document.querySelector(selector);
+        this._container = document.querySelector(popupSelector);
     }
 
     addItem(elem) {
@@ -10,9 +10,7 @@ class Section {
     }
 
     renderItems() {
-        this._renderedItems.forEach((item) => {
-            this._renderer(item);
-        });
+        this._renderedItems.forEach((item) => this._renderer(item));
     }
 }
 
