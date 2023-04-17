@@ -48,17 +48,17 @@
         <div class="popup__container">
             <button type="button" class="popup__button-close"></button>
             <h2 class="popup__text">Редактировать профиль</h2>
-            <form class="popup__form" name="popup-form" novalidate>
+            <form class="popup__form popup__form_profile" name="popup-form" novalidate>
                 <input type="text" name="popup-name" id="input-name"
                     class="popup__input popup__input_type_name"
                     placeholder="Имя пользователя" value="name"
                     minlength="2" maxlength="40" required>
-                <span class="input-name-error">Вы пропустили это поле</span>
+                <span class="input-name-error popup__span">Вы пропустили это поле</span>
                 <input type="text" name="popup-text" id="input-about"
                     class="popup__input popup__input_type_about"
                     placeholder="Информация о пользователе" value="about"
                     minlength="2" maxlength="200" required>
-                <span class="input-about-error">Вы пропустили это поле</span>
+                <span class="input-about-error popup__span">Вы пропустили это поле</span>
                 <button class="popup__button" type="submit">Сохранить</button>
             </form>
         </div>
@@ -72,11 +72,11 @@
                     class="popup__input popup__input_type_place"
                     placeholder="Название" value=""
                     minlength="2" maxlength="30" required>
-                <span class="input-place-error">Вы пропустили это поле</span>
+                <span class="input-place-error popup__span">Вы пропустили это поле</span>
                 <input type="url" name="popup-src" id="input-src"
                     class="popup__input popup__input_type_src" value=""
                     placeholder="Ссылка на картинку" required>
-                <span class="input-src-error">Введите адрес сайта</span>
+                <span class="input-src-error popup__span">Введите адрес сайта</span>
                 <button class="popup__button popup__button_places" type="submit">Сохранить</button>
             </form>
         </div>

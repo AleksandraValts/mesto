@@ -24,10 +24,6 @@ class Card {
       this._element = null;
     }
 
-    //_openImagePopup() {
-    //  this._handleCardClick(this._name, this._link);
-    //}
-
     generateCard() {
         this._element = this._getTemplate();
         this.cardImage = this._element.querySelector('.elements__image');
@@ -46,7 +42,6 @@ class Card {
       this.cardDeleteButton.addEventListener('click', () => this._deleteCard());
       this.cardImage.addEventListener('click', () => 
           this.handleCardClick(this._name, this._link));
-      // this._cardImage.addEventListener('click', () => this._openImagePopup());
     }
   }
 

@@ -34,19 +34,6 @@ const config = {
     errorClass: 'popup__input-error_active'
   };
 
-const popupEditProfile = document.querySelector('.popup_type_profile');
-const buttonOpenEditProfilePopup = document.querySelector('.profile__button-edit');
-const popupForm = document.querySelector('.popup__form');
-const nameInput = document.querySelector('.popup__input_type_name');
-const jobInput = document.querySelector('.popup__input_type_about');
-const popupEditPlace = document.querySelector('.popup_type_places');
-const buttonOpenAddCardPopup = document.querySelector('.profile__button-add');
-const formPlacesElement = document.querySelector('.popup__form_places');
-const placeInput = document.querySelector('.popup__input_type_place');
-const srcInput = document.querySelector('.popup__input_type_src');
 
-export { config, initialCards, popupEditProfile, 
-         buttonOpenEditProfilePopup, popupForm, 
-         nameInput, jobInput, popupEditPlace, 
-         buttonOpenAddCardPopup, formPlacesElement,
-         placeInput, srcInput }
+
+export { config, initialCards }
