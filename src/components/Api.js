@@ -4,7 +4,6 @@ class Api {
         this._headers = config.headers;
     }
     
-    // проверяем, есть ли ошибка
     _serverError(res) {
         if (res.ok) {
           return res.json();
@@ -13,7 +12,6 @@ class Api {
         }
     }
 
-    // получаем данные с сервера
     getUserInfo() {
       return fetch(`${this._url}/users/me`, {
         headers: this._headers,
@@ -22,7 +20,6 @@ class Api {
       });
     }
 
-    // загружаем карточки с сервера
     getInitialCards() {
       return fetch(`${this._url}/cards`, {
         headers: this._headers,
@@ -31,7 +28,6 @@ class Api {
       });
     }
 
-    // добавляем карточки на страницу
     addNewCard(data) {
       return fetch(`${this._url}/cards`, {
         method: "POST",
@@ -43,7 +39,6 @@ class Api {
       );
     }
 
-    // удаляем карточки
     deleteCard(cardId) {
       return fetch(`${this._url}/cards/${cardId}`, {
         method: "DELETE",
@@ -53,7 +48,6 @@ class Api {
       });
     }
 
-    // ставим лайк
     getCardLike(cardId) {
       return fetch(`${this._url}/cards/${cardId}/likes`, {
         method: "PUT",
@@ -63,7 +57,6 @@ class Api {
       });
     }
 
-    // удаляем лайк
     deleteCardLike(cardId) {
       return fetch(`${this._url}/cards/${cardId}/likes`, {
         method: "DELETE",
@@ -73,7 +66,6 @@ class Api {
       });
     }
 
-    // меняем аватар
     changeAvatar(data) {
       return fetch(`${this._url}/users/me/avatar`, {
         method: "PATCH",
@@ -84,7 +76,6 @@ class Api {
       });
     }
 
-    // меняем данные с сервера
     changeUserInfo(data) {
       return fetch(`${this._url}/users/me`, {
         method: "PATCH",
