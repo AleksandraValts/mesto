@@ -36,8 +36,7 @@ class FormValidator {
 
     _toggleButtonState() {
         if (this._hasInvalidInput()) {
-          this._buttonElement.classList.add(this.config.inactiveButtonClass);
-          this._buttonElement.setAttribute('disabled', true);
+          this.disabledButton();
         } else {
           this._buttonElement.classList.remove(this.config.inactiveButtonClass);
           this._buttonElement.removeAttribute('disabled', true);
@@ -72,5 +71,3 @@ class FormValidator {
 }
 
 export {FormValidator}
-
-//SHA256:Nb5m/6rjHujPLWZ7Sh8vk/qbSOiqrDJjVvcHVK841Bs

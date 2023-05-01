@@ -14,6 +14,19 @@ class PopupWithForm extends Popup {
         this._formElement.reset();
     }
 
+    open() {
+        super.open();
+        this._save();
+    }
+    
+    _loading() {
+        this._submitButtonElement.textContent = 'Сохранение...';
+    }
+
+    _save() {
+        this._submitButtonElement.textContent = 'Cохранить';
+    }
+
     _getInputValues() {
         this._inputValues = {};
         this._inputElement.forEach(
@@ -21,12 +34,20 @@ class PopupWithForm extends Popup {
         return this._inputValues;
     }
 
+    setValues(data) {
+        this._changedInputValues = {};
+        data = Object.values(data);
+        for (let i = 0; i < data.length; i++) {
+            this._inputElement[i].value = data[i];
+        }
+    }
+
     setEventListeners() {
         super.setEventListeners();
         this._formElement.addEventListener('submit', (evt) => {
             evt.preventDefault();
+            this._loading();
             this._handleFormSubmit(this._getInputValues());
-            this.close();
         });
     }
 }

@@ -13,3 +13,13 @@
         min-height: 322px;
     }
 }
+
+.popup__container_delete {
+    min-height: 220px;
+    max-height: 181px;
+}
+
+.popup__container_avatar {
+    min-height: 290px;
+    max-height: 272px;
+}
