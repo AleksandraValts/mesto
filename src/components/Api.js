@@ -4,7 +4,7 @@ class Api {
         this._headers = config.headers;
     }
     
-    _serverError(res) {
+    _checkResponse(res) {
         if (res.ok) {
           return res.json();
         } else {
@@ -16,7 +16,7 @@ class Api {
       return fetch(`${this._url}/users/me`, {
         headers: this._headers,
       }).then((res) => {
-        return this._serverError(res);
+        return this._checkResponse(res);
       });
     }
 
@@ -24,7 +24,7 @@ class Api {
       return fetch(`${this._url}/cards`, {
         headers: this._headers,
       }).then((res) => {
-        return this._serverError(res);
+        return this._checkResponse(res);
       });
     }
 
@@ -33,9 +33,8 @@ class Api {
         method: "POST",
         headers: this._headers,
         body: JSON.stringify(data),
-      //  body: JSON.stringify({ name: data.name, link: data.link }),
       }).then((res) => 
-        this._serverError(res)
+        this._checkResponse(res)
       );
     }
 
@@ -44,7 +43,7 @@ class Api {
         method: "DELETE",
         headers: this._headers,
       }).then((res) => {
-        return this._serverError(res);
+        return this._checkResponse(res);
       });
     }
 
@@ -53,7 +52,7 @@ class Api {
         method: "PUT",
         headers: this._headers,
       }).then((res) => {
-        return this._serverError(res);
+        return this._checkResponse(res);
       });
     }
 
@@ -62,7 +61,7 @@ class Api {
         method: "DELETE",
         headers: this._headers,
       }).then((res) => {
-        return this._serverError(res);
+        return this._checkResponse(res);
       });
     }
 
@@ -72,7 +71,7 @@ class Api {
         headers: this._headers,
         body: JSON.stringify(data),
       }).then((res) => {
-        return this._serverError(res);
+        return this._checkResponse(res);
       });
     }
 
@@ -81,8 +80,7 @@ class Api {
         method: "PATCH",
         headers: this._headers,
         body: JSON.stringify(data),
-        //body: JSON.stringify({name: data['popup-name'], about: data['popup-text'] }),
-      }).then((res) => this._serverError(res)
+      }).then((res) => this._checkResponse(res)
       );
     }
 }

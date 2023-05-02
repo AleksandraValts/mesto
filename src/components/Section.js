@@ -9,9 +9,11 @@ class Section {
         this._container.prepend(elem);
     }
 
-    renderItems() {
-        this._renderedItems.forEach((item) => this._renderer(item));
-    }
+    renderItems(items) {
+        for (let i = items.length - 1; i > -1; i--) {
+          this._renderer(items[i]);
+        }
+      }
 }
 
 export { Section }

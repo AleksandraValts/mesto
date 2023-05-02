@@ -12,16 +12,10 @@ class UserInfo {
         return data;
     }
 
-    setUserInfo({name, about, avatar}) {
-        this._profileName.textContent = name; 
-        this._profileAbout.textContent = about; 
-        if (avatar) {
-          this._profileAvatar.src = avatar;
-        } 
-    }
-
-   setAvatarLink(link) {
-      this._profileAvatar.src = link;
+    setUserInfo(data) {
+        this._profileName.textContent = data.name; 
+        this._profileAbout.textContent = data.about;
+        this._profileAvatar.src = data.avatar;  
     }
 }
 

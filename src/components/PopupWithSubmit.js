@@ -11,10 +11,6 @@ class PopupWithSubmit extends Popup {
     this.evt = evt;
     this._deleteButton.onclick = this.evt;
   }
-
-  close() {
-    super.close()
-  }
 }
 
 export { PopupWithSubmit }
